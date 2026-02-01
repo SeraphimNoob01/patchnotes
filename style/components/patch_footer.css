@@ -5,40 +5,39 @@
 .SiteFooter {
   background: linear-gradient(135deg, var(--Card) 0%, var(--IconGridBackground) 100%);
   border-top: 1px solid var(--Line);
-  margin-top: 32px; /* Reduced from 40px */
+  margin-top: 32px;
   padding: 0;
-  color: var(--Text);
+  color: var(--text-primary);
   box-shadow: 0 -3px 16px rgba(0, 0, 0, 0.08);
-  /* Ensure the footer appears above any sticky/positioned sidebars */
   position: relative;
   z-index: 60;
 }
 
 .FooterContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduced from 250px */
-  gap: 24px; /* Reduced from 30px */
-  padding: 32px 16px; /* Reduced from 40px 20px */
-  max-width: 960px; /* Reduced from 1200px */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  padding: 32px 16px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
 .FooterSection {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Reduced from 15px */
+  gap: 12px;
 }
 
 .FooterTitle {
-  font-size: 0.96em; /* Reduced from 1.2em */
+  font-size: 0.96em;
   font-weight: 600;
-  color: var(--Link);
-  margin: 0 0 8px 0; /* Reduced from 10px */
-  border-bottom: 2px solid var(--Link);
-  padding-bottom: 6px; /* Reduced from 8px */
+  color: var(--accent-orange);
+  margin: 0 0 8px 0;
+  border-bottom: 2px solid var(--accent-orange);
+  padding-bottom: 6px;
   display: flex;
   align-items: center;
-  gap: 6px; /* Reduced from 8px */
+  gap: 6px;
 }
 
 .FooterNav,
@@ -46,96 +45,97 @@
 .FooterLinks {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Reduced from 12px */
+  gap: 10px;
 }
 
 .FooterLink {
   display: flex;
   align-items: center;
-  gap: 8px; /* Reduced from 10px */
-  color: var(--Text-Secondary);
+  gap: 8px;
+  color: var(--text-secondary);
   text-decoration: none;
-  padding: 6px 10px; /* Reduced from 8px 12px */
-  border-radius: 5px; /* Reduced from 6px */
+  padding: 6px 10px;
+  border-radius: 5px;
   transition: all 0.3s ease;
-  font-size: 0.76em; /* Reduced from 0.95em */
+  font-size: 0.76em;
 }
 
 .FooterLink:hover {
   background-color: var(--added);
-  color: var(--Link);
-  transform: translateX(4px); /* Reduced from 5px */
+  color: var(--accent-orange);
+  transform: translateX(4px);
 }
 
 .FooterLink i {
-  width: 14px; /* Reduced from 18px */
+  width: 14px;
   text-align: center;
   opacity: 0.8;
+  color: var(--accent-orange);
 }
 
 .ThemeToggle,
 .PrintButton {
   display: flex;
   align-items: center;
-  gap: 8px; /* Reduced from 10px */
-  background: var(--Link);
-  color: white;
+  gap: 8px;
+  background: var(--accent-orange);
+  color: var(--text-primary);
   border: none;
-  padding: 8px 12px; /* Reduced from 10px 15px */
-  border-radius: 5px; /* Reduced from 6px */
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.72em; /* Reduced from 0.9em */
+  font-size: 0.72em;
   font-family: inherit;
 }
 
 .ThemeToggle:hover,
 .PrintButton:hover {
-  background: var(--Link-Hover);
+  background: var(--accent-orange-light);
   transform: translateY(-2px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px var(--accent-orange-glow);
 }
 
 .FooterInfo {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Reduced from 15px */
+  gap: 12px;
 }
 
 .PatchInfo {
   background: var(--added);
-  padding: 12px; /* Reduced from 15px */
-  border-radius: 6px; /* Reduced from 8px */
-  border-left: 3px solid var(--Link);
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-orange);
   margin: 0;
 }
 
 .Copyright {
   margin: 0;
-  font-size: 0.72em; /* Reduced from 0.9em */
+  font-size: 0.72em;
   opacity: 0.8;
   line-height: 1.5;
 }
 
 .External::after {
   content: '↗';
-  margin-left: 4px; /* Reduced from 5px */
+  margin-left: 4px;
   opacity: 0.6;
 }
 
 .FooterBottom {
   background: var(--IconGridBackground);
   border-top: 1px solid var(--Line);
-  padding: 12px 16px; /* Reduced from 15px 20px */
+  padding: 12px 16px;
 }
 
 .FooterBottomContent {
-  max-width: 960px; /* Reduced from 1200px */
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.68em; /* Reduced from 0.85em */
+  font-size: 0.68em;
   opacity: 0.7;
 }
 
@@ -143,5 +143,5 @@
 .BuildInfo {
   display: flex;
   align-items: center;
-  gap: 6px; /* Reduced from 8px */
+  gap: 6px;
 }

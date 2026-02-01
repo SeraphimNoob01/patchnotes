@@ -4,6 +4,19 @@
    ======================================== */
 
 /* ========================================
+   THEME VARIABLES
+   ======================================== */
+
+:root {
+  --Accent-Color: #FF6F00; /* Orange Akzentfarbe */
+  --Text: #ffffff;
+  --Text-Secondary: rgba(255, 255, 255, 0.7);
+  --Background: #1a1a1a;
+  --Card: rgba(255, 255, 255, 0.08);
+  --Line: rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
    HERO SECTION
    ======================================== */
 
@@ -57,7 +70,7 @@
 .HeroTitle h1 {
   font-size: 1.75rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--Accent-Color), #00b8d4);
+  background: linear-gradient(135deg, var(--Accent-Color), #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -115,7 +128,7 @@
   display: block;
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--Accent-Color);
+  color: #fff;
   line-height: 1;
 }
 
@@ -150,14 +163,14 @@
 }
 
 .PrimaryButton {
-  background: linear-gradient(135deg, var(--Accent-Color), #00b8d4);
+  background: linear-gradient(135deg, #fff);
   color: white;
-  box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
 }
 
 .PrimaryButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 210, 255, 0.4);
+  box-shadow: 0 6px 16px rgba(255, 111, 0, 0.4);
 }
 
 .SecondaryButton {
@@ -220,6 +233,12 @@
   border-color: var(--Accent-Color);
 }
 
+.ViewToggle.active {
+  background: var(--Accent-Color);
+  border-color: var(--Accent-Color);
+  color: white;
+}
+
 /* ========================================
    ENHANCED CONTROLS
    ======================================== */
@@ -267,7 +286,7 @@
 #patch-search:focus {
   outline: none;
   border-color: var(--Accent-Color);
-  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 111, 0, 0.2);
   background: rgba(255, 255, 255, 0.12);
 }
 
@@ -295,12 +314,6 @@
   color: var(--Text);
 }
 
-.SearchStats {
-  font-size: 0.875rem;
-  color: var(--Text-Secondary);
-  white-space: nowrap;
-}
-
 /* Filter Row */
 .FilterRow {
   display: flex;
@@ -313,6 +326,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
 }
 
 .FilterLabel {
@@ -326,44 +340,22 @@
 
 .FilterSelect {
   padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-  background: var(--Card, rgba(255, 255, 255, 0.08));
-  border: 1px solid var(--Line, rgba(255, 255, 255, 0.15));
+  background: var(--Card);
+  border: 1px solid var(--Line);
   border-radius: 6px;
   color: var(--Text);
   font-size: 0.875rem;
   min-width: 120px;
   transition: all 0.2s ease;
   cursor: pointer;
-  
-  /* Remove all browser default arrows completely */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  
-  /* Remove IE/Edge default arrow */
-  background: var(--Card, rgba(255, 255, 255, 0.08));
-  
-  /* Remove Firefox default styling */
-  background-clip: padding-box;
-  background-origin: padding-box;
 }
 
-/* Completely remove IE/Edge dropdown arrow */
-.FilterSelect::-ms-expand {
-  display: none;
-}
-
-.FilterGroup {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  position: relative;
-}
-
-/* Add dropdown arrow only to the specific dropdowns */
 #year-filter,
 #sort-filter {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF6F00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.5rem center;
   background-size: 1rem;
@@ -372,160 +364,20 @@
 .FilterSelect:focus {
   outline: none;
   border-color: var(--Accent-Color);
-  background-color: var(--Card, rgba(255, 255, 255, 0.12));
-  box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 2px rgba(255, 111, 0, 0.2);
 }
 
 .FilterSelect:hover {
-  background-color: var(--Card, rgba(255, 255, 255, 0.1));
-  border-color: var(--Accent-Color, rgba(255, 255, 255, 0.3));
-}
-
-/* Style the dropdown options */
-.FilterSelect option {
-  background: var(--Background, #222831);
-  color: var(--Text, #ffffff);
-  padding: 0.5rem;
-  border: none;
-  font-size: 0.875rem;
-}
-
-.FilterSelect option:hover,
-.FilterSelect option:focus,
-.FilterSelect option:checked {
-  background: var(--Accent-Color, #00d2ff);
-  color: #ffffff;
-}
-
-/* Dark theme specific adjustments (default) */
-:root:not(.light-mode) .FilterSelect {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-}
-
-:root:not(.light-mode) .FilterSelect option {
-  background: #1a1a1a;
-  color: #ffffff;
-}
-
-/* Light theme specific adjustments */
-:root.light-mode .FilterSelect {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.15);
-  color: #333333;
-}
-
-:root.light-mode #year-filter,
-:root.light-mode #sort-filter {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-}
-
-:root.light-mode .FilterSelect:focus {
-  background-color: rgba(0, 0, 0, 0.08);
-}
-
-:root.light-mode .FilterSelect:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-}
-
-:root.light-mode .FilterSelect option {
-  background: #ffffff;
-  color: #333333;
-}
-
-:root.light-mode .FilterSelect option:hover,
-:root.light-mode .FilterSelect option:focus,
-:root.light-mode .FilterSelect option:checked {
-  background: var(--Accent-Color, #00d2ff);
-  color: #ffffff;
-}
-
-/* Quick Filters */
-.QuickFilters {
-  display: flex;
-  gap: 0.5rem;
-  margin-left: auto;
-}
-
-.QuickFilter {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.5rem 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  color: var(--Text-Secondary);
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.QuickFilter:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--Text);
-}
-
-.QuickFilter.active {
-  background: var(--Accent-Color);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
   border-color: var(--Accent-Color);
 }
 
-/* ========================================
-   LOADING & EMPTY STATES
-   ======================================== */
-
-.LoadingState {
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-.LoadingSkeleton {
-  display: grid;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.SkeletonItem {
-  height: 80px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.05) 25%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.05) 75%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-loading 1.5s infinite;
-  border-radius: 8px;
-}
-
-@keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-.NoResults {
-  text-align: center;
-  padding: 3rem 1rem;
-  color: var(--Text-Secondary);
-}
-
-.NoResultsIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  opacity: 0.5;
-}
-
-.NoResults h3 {
-  margin: 0 0 0.5rem 0;
+.FilterSelect option {
+  background: var(--Background);
   color: var(--Text);
-}
-
-.NoResults p {
-  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
 }
 
 /* ========================================
@@ -537,23 +389,21 @@
   position: relative;
 }
 
-/* Enhanced patch list - remove max-height and make it flow naturally */
 .BalanceJSONList {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   padding: 0;
-  max-height: none !important; /* Override existing max-height */
-  overflow: visible !important; /* Override existing scroll behavior */
+  max-height: none !important;
+  overflow: visible !important;
 }
 
-/* Enhanced patch items with better card styling */
 .BalanceJSONList .patch-item {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   transition: all 0.3s ease;
-  margin: 0; /* Remove existing margin */
+  margin: 0;
   overflow: hidden;
   position: relative;
 }
@@ -576,7 +426,7 @@
 
 .BalanceJSONList .patch-item.latest::before {
   opacity: 1;
-  background: linear-gradient(180deg, var(--Accent-Color), #00b8d4);
+  background: linear-gradient(180deg, var(--Accent-Color), #FFA000);
 }
 
 .BalanceJSONList .patch-item:hover {
@@ -584,7 +434,7 @@
   border-color: var(--Accent-Color);
   transform: translateY(-2px);
   box-shadow: 
-    0 8px 24px rgba(0, 210, 255, 0.15),
+    0 8px 24px rgba(255, 111, 0, 0.15),
     0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -642,7 +492,7 @@
 }
 
 .BalanceJSONList .latest-badge {
-  background: linear-gradient(135deg, var(--Accent-Color), #00b8d4);
+  background: linear-gradient(135deg, var(--Accent-Color), #FFA000);
   color: white;
   padding: 0.25rem 0.6rem;
   border-radius: 12px;
@@ -650,199 +500,23 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0, 210, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(255, 111, 0, 0.3);
 }
 
 /* ========================================
    VIEW TOGGLE FUNCTIONALITY
    ======================================== */
 
-/* View Toggle Button Styles */
-.ViewToggle {
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  color: var(--Text);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ViewToggle:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: var(--Accent-Color);
-}
-
-.ViewToggle.active {
-  background: var(--Accent-Color);
-  border-color: var(--Accent-Color);
-  color: white;
-}
-
-/* Grid View Layout */
 .BalanceJSONList.grid-view {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
 }
 
-.BalanceJSONList.grid-view .patch-item {
-  min-height: 140px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  position: relative;
-  overflow: hidden;
-}
-
-.BalanceJSONList.grid-view .patch-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(-45deg, var(--Accent-Color), transparent);
-  opacity: 0.3;
-  border-radius: 0 0 0 100%;
-}
-
-.BalanceJSONList.grid-view .patch-item.latest::after {
-  opacity: 0.6;
-}
-
-.BalanceJSONList.grid-view .patch-link {
-  flex-direction: column;
-  text-align: center;
-  padding: 1.25rem;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 0.75rem;
-}
-
-.BalanceJSONList.grid-view .patch-info {
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.BalanceJSONList.grid-view .patch-header {
-  justify-content: center;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.BalanceJSONList.grid-view .patch-number {
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.BalanceJSONList.grid-view .patch-date {
-  font-size: 0.85rem;
-  text-align: center;
-  justify-content: center;
-}
-
-.BalanceJSONList.grid-view .latest-badge {
-  margin-top: 0.5rem;
-  font-size: 0.65rem;
-  padding: 0.3rem 0.7rem;
-}
-
-/* List View Layout (Default) */
 .BalanceJSONList.list-view {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-.BalanceJSONList.list-view .patch-link {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
-  padding: 1rem;
-  min-height: 60px;
-}
-
-.BalanceJSONList.list-view .patch-info {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-}
-
-.BalanceJSONList.list-view .patch-header {
-  justify-content: flex-start;
-}
-
-.BalanceJSONList.grid-view .patch-item:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 
-    0 12px 32px rgba(0, 210, 255, 0.2),
-    0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.BalanceJSONList.list-view .patch-item:hover {
-  transform: translateX(4px);
-  box-shadow: 
-    0 8px 24px rgba(0, 210, 255, 0.15),
-    0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Add subtle animations */
-.BalanceJSONList .patch-number {
-  position: relative;
-}
-
-.BalanceJSONList .patch-item:hover .patch-number::before {
-  color: var(--Accent-Color);
-  transform: scale(1.1);
-  transition: all 0.2s ease;
-}
-
-/* Enhanced latest badge styling */
-.BalanceJSONList .patch-item.latest {
-  background: linear-gradient(135deg, 
-    rgba(0, 210, 255, 0.12), 
-    rgba(0, 184, 212, 0.08),
-    rgba(255, 255, 255, 0.04)
-  );
-  border-color: rgba(0, 210, 255, 0.3);
-}
-
-.BalanceJSONList .patch-item.latest .patch-number {
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
-}
-
-/* Add subtle pattern for visual interest */
-.BalanceJSONList.grid-view .patch-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent, 
-    var(--Accent-Color), 
-    transparent
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.BalanceJSONList.grid-view .patch-item:hover::before {
-  opacity: 0.8;
-}
-
-.BalanceJSONList.list-view .patch-date {
-  margin-left: auto;
-  text-align: right;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
 }
 
 /* ========================================
@@ -865,52 +539,6 @@
     justify-content: center;
     flex-wrap: wrap;
   }
-  
-  .HeroTitle {
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: nowrap;
-  }
-  
-  .HeroTitle h1 {
-    font-size: 1.5rem;
-  }
-  
-  .FactionIcon {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-  }
-  
-  .HeroStats {
-    gap: 0.75rem;
-  }
-  
-  .SearchRow {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .FilterRow {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-  }
-  
-  .QuickFilters {
-    margin-left: 0;
-    justify-content: center;
-  }
-  
-  .BalanceJSONList .patch-link {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
-  }
-  
-  .BalanceJSONList .patch-header {
-    justify-content: center;
-  }
 }
 
 @media (max-width: 480px) {
@@ -920,25 +548,5 @@
   
   .PatchControls {
     padding: 1rem;
-  }
-  
-  .HeroContent {
-    gap: 0.75rem;
-  }
-  
-  .HeroRight {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .HeroActions {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .PrimaryButton, .SecondaryButton {
-    width: 100%;
-    justify-content: center;
   }
 }

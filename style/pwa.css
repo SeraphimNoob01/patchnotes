@@ -1,4 +1,4 @@
-/* PWA-specific styles */
+/* PWA-specific styles (Dark/Orange Theme) */
 
 /* Install/Update Banners */
 #pwa-install-banner,
@@ -9,15 +9,15 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 210, 255, 0.9);
+  background: rgba(20, 20, 20, 0.95); /* dark background */
   backdrop-filter: blur(15px) saturate(180%);
   -webkit-backdrop-filter: blur(15px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
-  color: var(--Text-Primary);
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
   z-index: 1000;
   box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   animation: slideDown 0.3s ease-out;
   transform: translateZ(0); /* Force hardware acceleration */
 }
@@ -51,12 +51,14 @@ body.pwa-banner-active {
   display: block;
   font-size: 1.1em;
   margin-bottom: 4px;
+  color: var(--accent-orange);
 }
 
 .pwa-banner-text p {
   margin: 0;
   font-size: 0.9em;
   opacity: 0.9;
+  color: var(--text-secondary);
 }
 
 .pwa-banner-actions {
@@ -78,55 +80,44 @@ body.pwa-banner-active {
 }
 
 .pwa-btn-primary {
-  background: var(--Text-Primary);
-  color: var(--Accent-Color);
+  background: var(--accent-orange);
+  color: var(--text-primary);
 }
 
 .pwa-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px var(--accent-orange-glow);
 }
 
 .pwa-btn-secondary {
-  background: transparent;
-  color: var(--Text-Primary);
-  border: 1px solid var(--Text-Primary);
+  background: var(--bg-hover);
+  color: var(--accent-orange);
+  border: 1px solid var(--accent-orange);
   padding: 6px 10px;
   font-size: 1.2em;
   line-height: 1;
 }
 
 .pwa-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
 }
 
-/* Success/Complete banners */
+/* Success/Complete banners (orange variant instead of green) */
 #pwa-success-banner,
 #pwa-complete-banner {
-  background: #4CAF50;
+  background: var(--accent-orange);
+  color: var(--text-primary);
 }
 
 /* Animation */
 @keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100%); opacity: 0; }
 }
 
 /* Banner exit animation */
@@ -174,6 +165,3 @@ body.pwa-banner-active {
     }
   }
 }
-
-/* Remove the old problematic selectors */
-/* This was causing issues with CSS selector support */

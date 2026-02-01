@@ -10,23 +10,23 @@
 
 /* Sidebar Title */
 .Sidebar h2 a {
-  color: var(--Text);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
-/*Icon Sidebar Container */
+/* Icon Sidebar Container */
 .IconSidebar {
   position: sticky;
-  top: 16px; /* Reduced from 20px */
+  top: 16px;
   background: var(--IconGridBackground);
-  padding: 4px 16px; /* Reduced from 5px 20px */
-  margin-left: 4px; /* Reduced from 5px */
-  color: var(--Text);
+  padding: 4px 16px;
+  margin-left: 4px;
+  color: var(--text-primary);
   text-align: justify;
-  border-radius: 12px; /* Reduced from 15px */
+  border-radius: 12px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 4px; /* Reduced from 5px */
+  gap: 4px;
 }
 
 /* Ensure sticky sidebar content sits below the footer in stacking order */
@@ -41,48 +41,57 @@
   grid-column: 1 / -1;
   text-align: center;
   margin: 0;
-  padding: 8px 0; /* Reduced from 10px */
+  padding: 8px 0;
 }
 
 /* Subgrid in Icon Sidebar */
 .IconSidebarSubgrid {
   display: grid;
   grid-template-columns: repeat(4, 0.15fr);
-  gap: 4px; /* Reduced from 5px */
+  gap: 4px;
 }
 
 /* Icon in Subgrid */
 .IconSidebarSubgrid img {
-  width: 48px; /* Reduced from 60px */
-  height: 48px; /* Reduced from 60px */
+  width: 48px;
+  height: 48px;
   text-decoration: none;
-  color: #3498db;
-  transition: box-shadow 0.3s ease;
-  border-radius: 8px; /* Reduced from 10px */
+  color: var(--accent-orange);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
 }
 
 .IconSidebarSubgrid img:hover {
-  box-shadow: 0 0 8px var(--IconGlow); /* Reduced from 10px */
+  box-shadow: 0 0 8px var(--accent-orange-glow);
+  transform: scale(1.1);
 }
 
 /* Icon Grid Container */
 .IconGrid {
   position: sticky;
-  top: 16px; /* Reduced from 20px */
-  background: var(--IconGridBackgroundG);
-  padding: 4px 16px 16px; /* Reduced from 5px 20px 20px */
-  color: var(--Text);
+  top: 16px;
+  background: var(--IconGridBackground);
+  padding: 4px 16px 16px;
+  color: var(--text-primary);
   text-align: justify;
-  border-radius: 12px; /* Reduced from 15px */
+  border-radius: 12px;
 }
 
 /* Icon Grid Title */
 .IconGrid h2 {
-  margin: 8px; /* Reduced from 10px */
+  margin: 8px;
+  color: var(--text-primary);
 }
 
 /* Icons in Icon Grid */
 .IconGrid img {
-  width: 44px; /* Reduced from 55px */
-  height: 44px; /* Reduced from 55px */
+  width: 44px;
+  height: 44px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.IconGrid img:hover {
+  box-shadow: 0 0 8px var(--accent-orange-glow);
+  transform: scale(1.1);
 }

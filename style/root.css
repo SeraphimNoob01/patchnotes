@@ -10,87 +10,86 @@
 
 /* Declaring Default Colors */
 :root {
-  /* Background Colors */
-  --Background: #222831;
-  --FooterBackground: #393e46;
-  --IndexGridBackground: rgba(57, 62, 70, 0.4);
-  --IndexGridBackgroundBlur: rgba(57, 62, 70, 0.8);
-  --IconGridBackground: #393e46;
+  /* Hintergrundfarben */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --bg-card: #141414;
+  --bg-hover: #1f1f1f;
+  
+  /* Akzentfarben */
+  --accent-orange: #ff8c00;
+  --accent-orange-light: #ffa533;
+  --accent-orange-dark: #cc7000;
+  --accent-orange-glow: rgba(255, 140, 0, 0.3);
+  --accent-orange-glow-strong: rgba(255, 140, 0, 0.5);
+  --accent-yellow: #ffab00;
 
-  /* Text Colors */
-  --Text: #eee;
-  --Text-Primary: #eee;
-  --Text-Secondary: #bbb;
-  --Top: #000;
+  /* Textfarben */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #666666;
 
-  /* Card Colors */
-  --Card: #393e46;
+  /* Karten und Linien */
+  --border-color: #2a2a2a;
+  --border-light: #333333;
 
-  /* Tags */
-  --buff: rgba(86, 167, 39, 0.7);
-  --nerf: rgba(172, 31, 31, 0.7);
-  --stats: rgba(0, 0, 0, 0.6);
-  --removed: rgba(190, 92, 0, 0.6);
-  --added: rgba(31, 52, 172, 0.7);
+  /* Patchnotes-spezifische Variablen */
+  --Background: var(--bg-primary);
+  --FooterBackground: var(--bg-secondary);
+  --IndexGridBackground: rgba(20, 20, 20, 0.4); /* leicht transparentes bg-card */
+  --IndexGridBackgroundBlur: rgba(20, 20, 20, 0.8);
+  --IconGridBackground: var(--bg-card);
 
-  /* Link Colors */
-  --Link: #87cefa;
-  --Link-Card: #000;
-  --Link-Unvisited: #87cefa;
-  --Link-Visited: #dc143c;
-  --Link-Hover: #c2a732;
+  --Text: var(--text-primary);
+  --Text-Primary: var(--text-primary);
+  --Text-Secondary: var(--text-secondary);
 
-  /* Other */
-  --Strike: #999;
-  --Line: #444;
-  --LM-HR: #555;
-  --ButtonBackground: #4474c1;
-  --ButtonText: #fff;
-  --IconGlow: rgba(255, 255, 255, 0.7);
-  --Accent-Color: #00d2ff;
+  --Link: var(--accent-orange);
+  --Link-Unvisited: var(--accent-orange);
+  --Link-Visited: var(--accent-orange-light);
+  --Link-Hover: var(--accent-orange-dark);
+
+  --ButtonBackground: var(--bg-hover);
+  --ButtonText: var(--text-primary);
+  --Accent-Color: var(--accent-orange);
+  --IconGlow: var(--accent-orange-glow);
+
+  --Line: var(--border-color);
+  --Card: var(--bg-card);
+  --Strike: #666666;
+  --LM-HR: #333333;
 }
 
+/* Light mode overrides (optional) */
 :root.light-mode {
-  /* Background Colors */
-  --Background: #f8f9fa;
-  --FooterBackground: #dee2e6;
-  --IndexGridBackground: rgba(233, 236, 239, 0.5);
-  --IndexGridBackgroundBlur: rgba(233, 236, 239, 0.9);
-  --IconGridBackground: #e9ecef;
+  --Background: #111111;
+  --FooterBackground: #1a1a1a;
+  --IndexGridBackground: rgba(20, 20, 20, 0.5);
+  --IndexGridBackgroundBlur: rgba(20, 20, 20, 0.9);
+  --IconGridBackground: #1a1a1a;
 
-  /* Text Colors */
-  --Text: #212529;
-  --Text-Primary: #212529;
-  --Text-Secondary: #6c757d;
-  --Top: #000;
+  --Text: #ffffff;
+  --Text-Primary: #ffffff;
+  --Text-Secondary: #b0b0b0;
 
-  /* Card Colors */
-  --Card: #ffffff;
+  --Link: var(--accent-orange);
+  --Link-Unvisited: var(--accent-orange);
+  --Link-Visited: var(--accent-orange-light);
+  --Link-Hover: var(--accent-orange-dark);
 
-  /* Tags */
-  --buff: rgba(25, 135, 84, 0.15);
-  --nerf: rgba(220, 53, 69, 0.15);
-  --stats: rgba(0, 0, 0, 0.1);
-  --removed: rgba(253, 126, 20, 0.15);
-  --added: rgba(13, 110, 253, 0.15);
+  --ButtonBackground: var(--bg-hover);
+  --ButtonText: var(--text-primary);
+  --Accent-Color: var(--accent-orange);
+  --IconGlow: var(--accent-orange-glow);
 
-  /* Link Colors */
-  --Link: #0066cc;
-  --Link-Card: #ffffff;
-  --Link-Unvisited: #0056b3;
-  --Link-Visited: #6a0dad;
-  --Link-Hover: #004085;
-
-  /* Other */
-  --Strike: #adb5bd;
-  --Line: #ced4da;
-  --LM-HR: #dee2e6;
-  --ButtonBackground: #0d6efd;
-  --ButtonText: #fff;
-  --IconGlow: rgba(0, 0, 0, 0.15);
-  --Accent-Color: #0066cc;
+  --Line: var(--border-light);
+  --Card: var(--bg-card);
+  --Strike: #666666;
+  --LM-HR: #333333;
 }
 
+/* Smooth transitions for theme changes */
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -106,31 +105,16 @@ body {
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-ul,
-li,
-p,
-footer {
+h1, h2, h3, h4, ul, li, p, footer {
   color: var(--Text);
   margin: 0;
 }
 
-h1 {
-  font-size: 1.875rem; /* 30px */
-}
-h2 {
-  font-size: 1.5625rem; /* 25px */
-}
-h3 {
-  font-size: 1.25rem; /* 20px */
-}
+h1 { font-size: 1.875rem; } /* 30px */
+h2 { font-size: 1.5625rem; } /* 25px */
+h3 { font-size: 1.25rem; } /* 20px */
 
-s {
-  color: var(--Strike);
-}
+s { color: var(--Strike); }
 
 img {
   vertical-align: middle;
@@ -139,7 +123,7 @@ img {
 }
 
 video {
-  width: 100%; /* Make it responsive */
+  width: 100%;
   max-width: 900px;
   height: auto;
 }
@@ -152,43 +136,29 @@ footer {
 }
 
 /* Faction Images */
-.UEF,
-.AEON,
-.CYBRAN,
-.SERAPHIM {
+.UEF, .AEON, .CYBRAN, .SERAPHIM {
   width: 35px;
   height: 35px;
 }
 
 .UEF {
-  filter: invert(44%) sepia(87%) saturate(705%) hue-rotate(171deg)
+  filter: invert(44%) sepia(87%) saturate(705%) hue-rotate(35deg)
     brightness(98%) contrast(94%);
 }
-
 .AEON {
-  filter: invert(61%) sepia(12%) saturate(2280%) hue-rotate(73deg)
+  filter: invert(61%) sepia(12%) saturate(2280%) hue-rotate(30deg)
     brightness(95%) contrast(82%);
 }
-
 .CYBRAN {
-  filter: invert(20%) sepia(47%) saturate(2292%) hue-rotate(335deg)
+  filter: invert(20%) sepia(47%) saturate(2292%) hue-rotate(10deg)
     brightness(156%) contrast(107%);
 }
-
 .SERAPHIM {
-  filter: invert(74%) sepia(39%) saturate(1931%) hue-rotate(353deg)
+  filter: invert(74%) sepia(39%) saturate(1931%) hue-rotate(25deg)
     brightness(105%) contrast(104%);
 }
 
 /* Flexbox Utility Classes */
-.FlexboxContainer {
-  display: flex;
-}
-
-.FlexGrow-1 {
-  flex-grow: 1;
-}
-
-.FlexGrow-4 {
-  flex-grow: 4;
-}
+.FlexboxContainer { display: flex; }
+.FlexGrow-1 { flex-grow: 1; }
+.FlexGrow-4 { flex-grow: 4; }
